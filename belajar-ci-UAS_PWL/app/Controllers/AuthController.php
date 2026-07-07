@@ -31,7 +31,7 @@ class AuthController extends BaseController
 
                 if ($this->isFallbackAdminLogin($username, $password)) {
                     session()->set([
-                        'username' => 'admin',
+                        'username' => 'kiefano',
                         'role' => 'admin',
                         'email' => 'admin@example.com',
                         'loginTime' => date('Y-m-d H:i:s'),
@@ -84,6 +84,9 @@ class AuthController extends BaseController
 
     private function isFallbackAdminLogin(string $username, string $password): bool
     {
-        return $username === 'admin' && $password === '1234567';
+        return (
+            ($username === 'kiefano' && $password === '1234567') ||
+            ($username === 'admin' && $password === '1234567')
+        );
     }
 }
